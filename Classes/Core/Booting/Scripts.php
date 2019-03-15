@@ -76,6 +76,7 @@ class Scripts
      */
     private static function initializePackageManagement(Bootstrap $bootstrap)
     {
+        $bootstrap->populateLocalConfiguration();
         $packageManager = new UncachedPackageManager();
         $bootstrap->setEarlyInstance(PackageManager::class, $packageManager);
         ExtensionManagementUtility::setPackageManager($packageManager);
