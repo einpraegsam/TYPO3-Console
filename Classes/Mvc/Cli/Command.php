@@ -273,6 +273,9 @@ class Command
         $i = 0;
         $argumentNames = $this->getDefinedArgumentNames();
         foreach ($commandParameters as $commandParameterName => $commandParameterDefinition) {
+            if ($commandParameterTags === null) {
+                continue;
+            }
             $explodedAnnotation = preg_split('/\s+/', $commandParameterTags[$i], 3);
             $description = !empty($explodedAnnotation[2]) ? $explodedAnnotation[2] : '';
             $dataType = $commandParameterDefinition['type'] ?? 'null';
